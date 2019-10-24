@@ -9,4 +9,10 @@
     <ProjectReference Include="..\Skat\Skat.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="Skat">
+      <HintPath>..\Skat\bin\Debug\netcoreapp2.1\Skat.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
