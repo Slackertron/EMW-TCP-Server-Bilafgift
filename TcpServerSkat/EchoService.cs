@@ -18,20 +18,22 @@ namespace TcpServerSkat
         }
         internal void DoIt()
         {
+            //Laver stream på connectionen og nye objecter af write/read
             Stream ns = connectionSocket.GetStream();
             StreamReader sr = new StreamReader(ns);
             StreamWriter sw = new StreamWriter(ns);
             sw.AutoFlush = true; // enable automatic flushing
 
-            sw.WriteLine("Er det Personbil eller Elbil, som du vil finde afgiften på ?");
+            //sw.WriteLine skriver til Clienten.
+            sw.WriteLine("Er det Personbil eller Elbil, som du vil finde afgiften på?");
             string message = "Startup";
             string answer;
+            //Loopet er sat op, så man kan kører flere bil i træk i stedet for, at skulle lukke ned efter hver udregning.
             while (!String.IsNullOrEmpty(message))
             {
+                // Tager parameteret for biltypen.
                 message = sr.ReadLine();
                 Console.WriteLine("Client: " + message);
-
-                // Tager parameteret for biltypen.
                 string parameter2 = message;
                 sw.WriteLine("Indsæt Pris:");
 
